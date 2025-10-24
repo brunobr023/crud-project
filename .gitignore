@@ -1,0 +1,12 @@
+
+# Node - Ignorar o modulos, pois há um instalador  
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment / secrets - API KEYS, para teste.
+.env
+.env.local
+.env.*.local
+secrets.json
