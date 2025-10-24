@@ -1,15 +1,12 @@
-// src/App.jsx
-import { useEffect, useState } from 'react';
-import { api } from './services/api.ts';
-
-function App() {
-  const [mensagem, setMensagem] = useState('');
-
-  useEffect(() => {
-    api.get('/teste').then(res => setMensagem(res.data));
-  }, []);
-
-  return <h1>{mensagem}</h1>;
+function BlocoCentral() {
+  return (
+    <div className="container">
+      <div className="bloco">
+        <h2>Bloco Centralizado</h2>
+        <p>Esse conteúdo está no centro da tela!</p>
+      </div>
+    </div>
+  );
 }
 
-export default App;
+export default BlocoCentral;
