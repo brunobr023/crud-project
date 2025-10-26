@@ -1,0 +1,16 @@
+.menu-block {
+  width: 200px;
+  height: 150px;
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.menu-block:hover {
+  background-color: #1565c0;
+}
