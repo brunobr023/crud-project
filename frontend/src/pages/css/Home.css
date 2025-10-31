@@ -60,3 +60,10 @@ body, html {
   flex-direction: row;
   flex-wrap: nowrap;  /* Previne quebra de linha dos itens */
 }
+.title{
+  position: absolute;
+  top: 10%;
+  font-size: 3rem;
+  color: white;
+  z-index: 2;
+}

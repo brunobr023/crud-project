@@ -1,6 +1,6 @@
 import Aurora from '../components/Background';
 import MenuBlock from '../components/MenuBlock';
-import './Home.css';
+import './css/Home.css';
 
 const menuItems = [
   { title: "Criar", path: "/create" },
@@ -15,12 +15,13 @@ function Home() {
       {/* Componente de fundo animado Aurora */}
       <Aurora
         ClassName="aurora-container"
-        colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+        colorStops={["#3A29FF", "#94FFE6", "#D3FF32"]}
         blend={0.7}
         amplitude={1.0}
         speed={0.5}
       />
       <div className='base-principal'>
+        <h1 className='title'>Bem-vindo a criação de Usuários!</h1>
         {/* Blocos de menu para navegação CRUD */}
         <div className="menu-wrapper">
           {menuItems.map(item => (
