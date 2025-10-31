@@ -1,7 +1,62 @@
-.home-container {
+/* Reset global de propriedades básicas */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configurações base para body e html */
+/* Previne scrollbars indesejadas e garante altura total */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container principal que envolve todo o conteúdo */
+/* Posicionamento absoluto para cobrir toda a viewport */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Configuração do container do efeito Aurora */
+/* Fixado na viewport para garantir cobertura total durante scroll */
+.aurora-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;  /* Mantém o aurora abaixo do conteúdo */
+}
+
+/* Container principal do conteúdo */
+/* Centraliza todos os elementos filhos */
+.base-principal {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  padding: 40px;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;  /* Posiciona acima do aurora */
+}
+
+/* Wrapper dos blocos de menu */
+/* Organiza os itens do menu em linha horizontal */
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;  /* Espaçamento entre os itens do menu */
+  z-index: 2;  /* Garante que o menu fique acima de todos os elementos */
+  flex-direction: row;
+  flex-wrap: nowrap;  /* Previne quebra de linha dos itens */
 }

@@ -5,7 +5,6 @@ interface MenuBlockProps {
   title: string;
   path: string;
 }
-
 function MenuBlock({ title, path }: MenuBlockProps) {
   return (
     <Link to={path} className="menu-block">
