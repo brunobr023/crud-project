@@ -16,7 +16,7 @@
 .menu-block:hover {
   transform: scale(1.1);
   background-color: #ffffff;
-  color: #e6e6ff;
+  color: #000000;
   box-shadow: 0 0 15px rgba(23, 12, 154, 0.5);
 }
 

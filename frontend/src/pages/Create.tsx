@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Aurora from '../components/Background';
 import './css/Create.css';
 
 
@@ -14,7 +15,7 @@ interface FormData{
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Dados enviados:', FormData);
-    // Aqui você adicionará a lógica para enviar os dados ao servidor
+    // Aqui é a lógica para enviar os dados ao servidor
   };
 
 const Create: React.FC = () => {
@@ -35,13 +36,24 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   };
 
   return (
-    <div className='base-principal'>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <div className='menu'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18l-6-6 6-6" stroke="#3A29FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+    <div className='background'> {/* Container de fundo */}
+    {/* Componente de fundo animado Aurora */}
+          <Aurora
+            ClassName="aurora-container"
+            colorStops={["#B7E8E3", "#9DD8E8", "#B7E8D2"]}
+            blend={0.7}
+            amplitude={1.0}
+            speed={0.5}
+          />
+      <div className='base-principal'> {/* Container principal */}
+        <form className='forms' onSubmit={handleSubmit}> {/* Formulário */}
+          <div className="form-group"> {/* Grupo de formulário */}
+            <div className='menu'> {/* Menu de navegação */}
+              <a href="\"> {/* Voltar */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18l-6-6 6-6" stroke="#000000ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
             <h1>Formulário de Criação de Usuários</h1>
           </div>
           <label htmlFor="nome">Nome:</label>
@@ -101,7 +113,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         <button type="submit">Criar Usuário</button>
       </form>
     </div>
-  );
-};
-
+  </div>
+);
+}
 export default Create;

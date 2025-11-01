@@ -65,6 +65,7 @@ input {
   color: #333;
   font-size: 1rem; /* Texto maior */
   transition: all 0.3s ease; /* Transição suave */
+  box-sizing: border-box;
 }
 
 input:focus {
@@ -94,8 +95,14 @@ button:hover {
 }
 
 h1 {
-  color: #333;
+  color: black;
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+}
+.forms{
+  border-radius: 15px;
+  background-color: #B7BFE8;
+  width: 800px;
+  padding: 15px;
 }

@@ -15,7 +15,7 @@ function Home() {
       {/* Componente de fundo animado Aurora */}
       <Aurora
         ClassName="aurora-container"
-        colorStops={["#3A29FF", "#94FFE6", "#D3FF32"]}
+        colorStops={["#B7E8E3", "#9DD8E8", "#B7E8D2"]}
         blend={0.7}
         amplitude={1.0}
         speed={0.5}

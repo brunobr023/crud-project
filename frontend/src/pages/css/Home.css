@@ -13,6 +13,7 @@ body, html {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background-color: #F2E3D5;
 }
 
 /* Container principal que envolve todo o conteúdo */
@@ -64,6 +65,20 @@ body, html {
   position: absolute;
   top: 10%;
   font-size: 3rem;
-  color: white;
+  color: rgb(0, 0, 0);
   z-index: 2;
+}
+.menu{
+  display: inline-flex;
+  align-items: center;
+
+}
+svg{
+  padding-right: 15px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+
+}
+svg:hover{
+  transform: scale(1.2);
+
 }

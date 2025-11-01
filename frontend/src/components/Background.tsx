@@ -86,26 +86,33 @@ struct ColorStop {
 
 void main() {
   vec2 uv = gl_FragCoord.xy / uResolution;
-  
+
   ColorStop colors[3];
   colors[0] = ColorStop(uColorStops[0], 0.0);
   colors[1] = ColorStop(uColorStops[1], 0.5);
   colors[2] = ColorStop(uColorStops[2], 1.0);
-  
+
   vec3 rampColor;
   COLOR_RAMP(colors, uv.x, rampColor);
-  
+
   float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
   height = exp(height);
   height = (uv.y * 2.0 - height + 0.2);
   float intensity = 0.6 * height;
-  
+
   float midPoint = 0.20;
   float auroraAlpha = smoothstep(midPoint - uBlend * 0.5, midPoint + uBlend * 0.5, intensity);
-  
-  vec3 auroraColor = intensity * rampColor;
-  
-  fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
+
+  // 🎯 Cor base combinando com #F2E3D5 (convertido para RGB)
+  vec3 baseColor = vec3(0.949, 0.89, 0.835); // equivalente a #F2E3D5
+
+  // Mistura suave entre cor base e aurora
+  vec3 auroraColor = mix(baseColor, rampColor, auroraAlpha);
+
+  // Garante que o alpha nunca seja zero
+  auroraAlpha = max(auroraAlpha, 0.1);
+
+  fragColor = vec4(auroraColor, auroraAlpha);
 }
 `;
 
