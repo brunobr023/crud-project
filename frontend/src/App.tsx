@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// @ts-ignore: missing declaration file for './pages/Home'
 
 import Home from './pages/Home';
 import Create from './pages/Create';
