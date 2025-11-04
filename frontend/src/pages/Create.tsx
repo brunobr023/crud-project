@@ -7,32 +7,41 @@ interface FormData{
   nome: string;
   email: string;
   senha: string;
+  confirmarSenha: string;
   telefone: string;
   idade:  number | null;
 }
-
-  // Função para enviar o formulário
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Dados enviados:', FormData);
-    // Aqui é a lógica para enviar os dados ao servidor
-  };
-
 const Create: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nome: '',
     email: '',
     senha: '',
+    confirmarSenha: '',
     telefone: '',
     idade: null
   });
-// Função para lidar com mudanças nos campos
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+// Função para prevenir XSS
+  const xssPrevencion = (str: string) => {
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  };
+
+  // Manipulador de mudança de input
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    const sanitizedValue = name === 'nome' ? xssPrevencion(value) : value;
+
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: sanitizedValue
     }));
+  };
+  // Manipulador de submissão do formulário
+  
+  // Função para enviar o formulário
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Dados enviados:', formData);
+    // Aqui é a lógica para enviar os dados ao servidor
   };
 
   return (
@@ -45,7 +54,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             amplitude={1.0}
             speed={0.5}
           />
-      <div className='base-principal'> {/* Container principal */}
+      <div className='base-Create'> {/* Container principal */}
         <form className='forms' onSubmit={handleSubmit}> {/* Formulário */}
           <div className="form-group"> {/* Grupo de formulário */}
             <div className='menu'> {/* Menu de navegação */}
@@ -54,8 +63,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   <path d="M15 18l-6-6 6-6" stroke="#000000ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-            <h1>Formulário de Criação de Usuários</h1>
-          </div>
+              <h1 className='Create_Title'>Formulário de Criação de Usuários</h1>
+            </div>
           <label htmlFor="nome">Nome:</label>
           <input
             type="text"
@@ -84,6 +93,17 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             id="senha"
             name="senha"
             value={formData.senha}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="confirmarSenha">Confirme a senha:</label>
+          <input
+            type="password"
+            id="confirmarSenha"
+            name="confirmarSenha"
+            value={formData.confirmarSenha}
             onChange={handleChange}
             required
           />
