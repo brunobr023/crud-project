@@ -1,0 +1,26 @@
+.menu-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #170c9a;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  height: 100px;
+  width: 150px;
+}
+
+.menu-block:hover {
+  transform: scale(1.1);
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(23, 12, 154, 0.5);
+}
+
+.menu-block h2 {
+  margin: 0;
+  text-align: center;
+}
