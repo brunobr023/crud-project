@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
  @RestController
- @RequestMapping("/")
+ @RequestMapping("/JAVA")
  public class TesteController {
      @GetMapping
      public String testar() {
-         return "Backend funcionando!";
+         return "Rick and Morty!";
      }
  }
