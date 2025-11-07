@@ -2,21 +2,25 @@ import Aurora from '../components/Background';
 import MenuBlock from '../components/MenuBlock';
 import './css/Home.css';
 
+// Lista de itens do menu com roles associadas
 const menuItems = [
-  { title: "Criar", path: "/create", role: "admin" },
-  { title: "Visualizar", path: "/read", role: "user" },
-  { title: "Atualizar", path: "/update", role: "user" },
-  { title: "Excluir", path: "/delete", role: "admin" }
+  { title: "Criar", path: "/create", role: ["admin"] },
+  { title: "Visualizar", path: "/read", role: ["user", "admin"] },
+  { title: "Atualizar", path: "/update", role: ["admin"] },
+  { title: "Excluir", path: "/delete", role: ["admin"] }
 ];
 
+// Simulação de papel do usuário (altere para "admin", "user", "guest", etc.)
+const userRole = "admin";
+
 // Função de verificação de papel (role) do usuário
-const VerificationRole = (role: string) => {
-  const userRole = "admin"; // Exemplo fixo
-  return role === userRole;
+const VerificationRole = async (roles: string[]) => {
+  return roles.includes(userRole);
 };
 
-//Verficicação se é admin
+// Filtra os itens do menu com base na role do usuário
 const filteredMenu = menuItems.filter(item => VerificationRole(item.role));
+
 
 
 function Home() {
