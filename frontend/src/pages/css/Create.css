@@ -26,18 +26,17 @@ body, html {
   pointer-events: none;
 }
 
-/* Container principal da página */
 .base-Create {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* usar height em vez de min-height */
   padding: 60px 0;
   box-sizing: border-box;
   z-index: 2;
-  overflow-y: auto;
+  overflow-y: auto; /* auto é melhor que scroll */
 }
 
 /* Título da página */

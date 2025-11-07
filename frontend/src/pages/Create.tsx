@@ -35,14 +35,40 @@ const Create: React.FC = () => {
       [name]: sanitizedValue
     }));
   };
-  // Manipulador de submissão do formulário
-  
-  // Função para enviar o formulário
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Dados enviados:', formData);
-    // Aqui é a lógica para enviar os dados ao servidor
-  };
+ // Estado para armazenar o resultado retornado pelo backend
+const [resultado, setResultado] = useState<string>('');
+
+// Função que será chamada ao submeter o formulário
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault(); // Impede o comportamento padrão do formulário (recarregar a página)
+
+  try {
+    // Envia os dados do formulário para o backend Java via POST
+    const response = await fetch("http://localhost:8080/api/processar", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, // Define o tipo de conteúdo como JSON
+      body: JSON.stringify(formData), // Envia os dados como JSON
+      // ⚠️ Aqui você está enviando um objeto com chave "formData"
+      // Se o backend espera os campos diretamente, use: JSON.stringify(formData)
+    });
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) {
+      throw new Error('Erro ao enviar os dados');
+      
+    }
+
+    // Converte a resposta em JSON
+    const data = await response.json();
+
+    // Atualiza o estado com o resultado retornado pelo backend
+    setResultado(data.resultado); // Certifique-se de que o backend retorna um campo "resultado"
+  } catch (error: any) {
+    // Em caso de erro, exibe no console e atualiza o estado com mensagem de erro
+    console.error(error);
+    setResultado(`Erro ao processar o formulário, Código de erro: ${error.message}`);
+  }
+};
 
   return (
     <div className='background'> {/* Container de fundo */}
@@ -130,7 +156,8 @@ const Create: React.FC = () => {
             required
           />
         </div>
-        <button type="submit">Criar Usuário</button>
+        <button type="submit" >Criar Usuário</button>
+        {resultado && <p className="resultado">{resultado}</p>}
       </form>
     </div>
   </div>
