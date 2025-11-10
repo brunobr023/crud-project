@@ -12,7 +12,7 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   background-color: #F2E3D5;
 }
 
@@ -43,6 +43,7 @@ body, html {
 .base-principal {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -81,4 +82,8 @@ svg{
 svg:hover{
   transform: scale(1.2);
 
+}
+.login-footer {
+  display: block;
+  margin-top: 20px; /* Espaço entre os botões acima e este */
 }

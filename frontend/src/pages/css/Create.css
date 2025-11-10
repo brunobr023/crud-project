@@ -1,33 +1,57 @@
-/* Reset global de propriedades básicas */
+/* Reset global */
 :root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Configurações base para body e html */
-/* Previne scrollbars indesejadas e garante altura total */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
-  overflow: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #F2E3D5;
 }
 
-.base-principal {
+/* Aurora background fixo */
+.aurora-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.base-Create {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh; /* usar height em vez de min-height */
+  padding: 60px 0;
+  box-sizing: border-box;
+  z-index: 2;
+  overflow-y: auto; /* auto é melhor que scroll */
 }
 
+/* Título da página */
+.Create_Title {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+/* Container do formulário */
 .form {
   width: 100%;
-  min-width: 700px; /* Largura mínima garantida */
+  min-width: 700px;
   max-width: 1300px;
   background: rgba(169, 164, 164, 0.95);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -36,73 +60,66 @@ body, html {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem; /* Adicionado para espaçamento interno */
+  padding: 2rem;
+  margin-bottom: 80px;
+  border-radius: 12px;
+  z-index: 2;
 }
 
+/* Grupo de campos */
 .form-group {
   width: 100%;
-  margin-bottom: 1rem; /* Aumentado */
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  display: block;
 }
 
+/* Rótulos */
 label {
   display: block;
-  margin-bottom: 0.8rem; /* Aumentado */
-  color: #333; /* Cor mais escura para melhor contraste */
-  font-size: 1.1rem; /* Texto maior */
-  font-weight: 500; /* Um pouco mais bold */
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
+/* Campos de entrada */
 input {
   width: 100%;
-  padding: 0.8rem 1rem; /* Padding aumentado */
-  border: 2px solid #e1e1e1; /* Borda mais visível */
-  border-radius: 8px; /* Border radius aumentado */
+  padding: 0.8rem 1rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
   background: #ffffff;
   color: #333;
-  font-size: 1rem; /* Texto maior */
-  transition: all 0.3s ease; /* Transição suave */
+  font-size: 1rem;
+  transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
 input:focus {
   outline: none;
   border-color: #3A29FF;
-  box-shadow: 0 0 0 3px rgba(58, 41, 255, 0.1); /* Efeito de foco */
+  box-shadow: 0 0 0 3px rgba(58, 41, 255, 0.1);
 }
 
+/* Botão de envio */
 button {
   width: 100%;
-  padding: 1rem; /* Padding aumentado */
+  padding: 1rem;
   background: #3A29FF;
   color: white;
   border: none;
-  border-radius: 8px; /* Border radius aumentado */
+  border-radius: 8px;
   cursor: pointer;
   margin-top: 1.5rem;
-  font-size: 1.1rem; /* Texto maior */
+  font-size: 1.1rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 button:hover {
   background: #2816ff;
-  transform: translateY(-2px); /* Efeito de elevação */
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(58, 41, 255, 0.2);
-}
-
-h1 {
-  color: black;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.forms{
-  border-radius: 15px;
-  background-color: #B7BFE8;
-  width: 800px;
-  padding: 15px;
 }

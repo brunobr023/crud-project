@@ -7,33 +7,68 @@ interface FormData{
   nome: string;
   email: string;
   senha: string;
+  confirmarSenha: string;
   telefone: string;
   idade:  number | null;
 }
-
-  // Função para enviar o formulário
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Dados enviados:', FormData);
-    // Aqui é a lógica para enviar os dados ao servidor
-  };
-
 const Create: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nome: '',
     email: '',
     senha: '',
+    confirmarSenha: '',
     telefone: '',
     idade: null
   });
-// Função para lidar com mudanças nos campos
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+// Função para prevenir XSS
+  const xssPrevencion = (str: string) => {
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  };
+
+  // Manipulador de mudança de input
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    const sanitizedValue = name === 'nome' ? xssPrevencion(value) : value;
+
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: sanitizedValue
     }));
   };
+ // Estado para armazenar o resultado retornado pelo backend
+const [resultado, setResultado] = useState<string>('');
+
+// Função que será chamada ao submeter o formulário
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault(); // Impede o comportamento padrão do formulário (recarregar a página)
+
+  try {
+    // Envia os dados do formulário para o backend Java via POST
+    const response = await fetch("http://localhost:8080/api/processar", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, // Define o tipo de conteúdo como JSON
+      body: JSON.stringify(formData), // Envia os dados como JSON
+      // ⚠️ Aqui você está enviando um objeto com chave "formData"
+      // Se o backend espera os campos diretamente, use: JSON.stringify(formData)
+    });
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) {
+      throw new Error('Erro ao enviar os dados');
+      
+    }
+
+    // Converte a resposta em JSON
+    const data = await response.json();
+
+    // Atualiza o estado com o resultado retornado pelo backend
+    setResultado(data.resultado); // Certifique-se de que o backend retorna um campo "resultado"
+  } catch (error: any) {
+    // Em caso de erro, exibe no console e atualiza o estado com mensagem de erro
+    console.error(error);
+    setResultado(`Erro ao processar o formulário, Código de erro: ${error.message}`);
+  }
+};
 
   return (
     <div className='background'> {/* Container de fundo */}
@@ -45,7 +80,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             amplitude={1.0}
             speed={0.5}
           />
-      <div className='base-principal'> {/* Container principal */}
+      <div className='base-Create'> {/* Container principal */}
         <form className='forms' onSubmit={handleSubmit}> {/* Formulário */}
           <div className="form-group"> {/* Grupo de formulário */}
             <div className='menu'> {/* Menu de navegação */}
@@ -54,8 +89,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   <path d="M15 18l-6-6 6-6" stroke="#000000ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-            <h1>Formulário de Criação de Usuários</h1>
-          </div>
+              <h1 className='Create_Title'>Formulário de Criação de Usuários</h1>
+            </div>
           <label htmlFor="nome">Nome:</label>
           <input
             type="text"
@@ -89,6 +124,17 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="confirmarSenha">Confirme a senha:</label>
+          <input
+            type="password"
+            id="confirmarSenha"
+            name="confirmarSenha"
+            value={formData.confirmarSenha}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="telefone">Telefone:</label>
           <input
             type="tel"
@@ -110,7 +156,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             required
           />
         </div>
-        <button type="submit">Criar Usuário</button>
+        <button type="submit" >Criar Usuário</button>
+        {resultado && <p className="resultado">{resultado}</p>}
       </form>
     </div>
   </div>
