@@ -1,21 +1,23 @@
-package com.crudzin.backend.Model;
+package com.crudzin.backend.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "departamento")
-public class Departamento {
+@Table(name = "cargo")
+public class Cargo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idCargo")
     private Integer id;
 
+    @Column(name = "nome")
     private String nome;
 
-    public Departamento() {
+    public Cargo() {
     }
 
-    public Departamento(Integer id, String nome) {
+    public Cargo(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -24,7 +26,7 @@ public class Departamento {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id){
         this.id = id;
     }
 

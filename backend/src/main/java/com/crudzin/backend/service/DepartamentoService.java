@@ -1,12 +1,12 @@
 package com.crudzin.backend.service;
 
 import com.crudzin.backend.model.Departamento;
-
 import java.util.List;
 import java.util.Optional;
-
 import com.crudzin.backend.repository.DepartamentoRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DepartamentoService {
 
     private final DepartamentoRepository repository;
@@ -34,7 +34,7 @@ public class DepartamentoService {
     }
 
     public List<Departamento> buscarPorNome(String nome) {
-        return repository.buscarPorNome(nome);
+        return repository.findByNome(nome);
     }
 
 }
