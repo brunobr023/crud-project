@@ -1,0 +1,78 @@
+.update-background {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.aurora-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Cabeçalho fixo no canto superior esquerdo */
+.update-header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.read-header a {
+  display: flex;
+  align-items: center;
+}
+
+.update-header svg {
+  display: block;
+  height: 64px;
+  width: 64px;
+  vertical-align: middle;
+}
+
+.update-header h1 {
+  font-size: 36px;
+  color: #333;
+  margin: 0;
+  line-height: 1; /* evita espaçamento extra */
+  padding: 0;
+}
+
+/* Tabela centralizada */
+.update-table-container {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-table th,
+.update-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+.update-table th {
+  background-color: #3A29FF;
+  color: white;
+  font-weight: bold;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './css/Read.css';
 import Aurora from '../components/Background';
+import {getUsers} from '../services/users';
 
 type Usuario = {
   id: number;
@@ -11,13 +12,18 @@ type Usuario = {
 
 const Read: React.FC = () => {
   const [Usuarios, setUsuarios] = useState<Usuario[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const dadosMock: Usuario[] = [
-      { id: 1, nome: 'Bruno', idade: 35, email: 'bruno@email.com' },
-      { id: 2, nome: 'Bianca', idade: 28, email: 'bianca@email.com' },
-    ];
-    setUsuarios(dadosMock);
+    getUsers()
+      .then((data) => {
+        setUsuarios(data);
+        setLoading(false);
+      })
+      .catch((error)=> {
+        console.error("Erro ao buscar os usuários:", error);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -66,5 +72,4 @@ const Read: React.FC = () => {
 </div>
   );
 };
-
 export default Read;
