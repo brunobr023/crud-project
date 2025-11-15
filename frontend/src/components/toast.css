@@ -1,0 +1,58 @@
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 8px;
+  color: #fff;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.toast-success {
+  background-color: #4caf50;
+}
+
+.toast-error {
+  background-color: #f44336;
+}
+
+.toast-info {
+  background-color: #2196f3;
+}
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 9999;
+}
+
+.toast-hide {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quando a tela for pequena (ex: até 600px), reposiciona para o centro inferior */
+@media screen and (max-width: 600px) {
+  .toast-container {
+    top: auto;
+    bottom: 16px;
+    right: 50%;
+    transform: translateX(50%);
+    align-items: center;
+  }
+}
