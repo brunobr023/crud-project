@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/colaboradores")
 public class ColaboradorController {
 
@@ -55,5 +56,6 @@ public class ColaboradorController {
         }
         return ResponseEntity.notFound().build();
     }
+
 }
 

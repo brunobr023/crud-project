@@ -2,23 +2,23 @@ import { api } from "./api";
 
   // Função para obter a lista de usuários
   export const getUsers = async () => {
-    const response = await api.get("/users");
+    const response = await api.get("/colaboradores");
     return response.data;
   }
 
   // Função para atualizar um usuário
   export const updateUser = async (id: number, usuario: Usuario) => {
-    const response = await api.put(`/users/${id}`, usuario);
+    const response = await api.put(`/colaboradores/${id}`, usuario);
     return response.data;
   }
   // Função para criar um novo usuário
   export const createUser = async (usuario: Usuario) => {
-    const response = await api.post("/users", usuario);
+    const response = await api.post("/colaboradores", usuario);
     return response.data;
   }
   // Função para deletar um usuário
   export const deleteUser = async (id: number) => {
-    const response = await api.delete(`/users/${id}`);
+    const response = await api.delete(`/colaboradores/${id}`);
     return response.data;
   }
   export interface Usuario {

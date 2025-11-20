@@ -44,7 +44,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     // Envia os dados do formulário para o backend Java via POST
-    const response = await fetch("http://localhost:8080/api/processar", {
+    const response = await fetch("http://localhost:8080/colaborador", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, // Define o tipo de conteúdo como JSON
       body: JSON.stringify(formData), // Envia os dados como JSON
