@@ -1,0 +1,103 @@
+/* Reset global de propriedades básicas */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configurações base para body e html */
+/* Previne scrollbars indesejadas e garante altura total */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: #F2E3D5;
+  scroll-behavior: smooth;
+}
+
+/* Container principal que envolve todo o conteúdo */
+/* Posicionamento absoluto para cobrir toda a viewport */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Configuração do container do efeito Aurora */
+/* Fixado na viewport para garantir cobertura total durante scroll */
+.aurora-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;  /* Mantém o aurora abaixo do conteúdo */
+}
+.navbarLanding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;              /* garante que não ultrapasse a tela */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;           /* diminui o espaçamento lateral */
+  background: linear-gradient(to right, #e6f7ff, #ffffff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 9999;
+  box-sizing: border-box;    /* inclui padding na largura total */
+}
+
+.navbarLanding img {
+  height: 50px;
+}
+
+.menubar, .authbar {
+  display: flex;
+  gap: 20px;
+}
+
+.menubar a, .authbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menubar a:hover, .authbar a:hover {
+  color: #007bff;
+}
+.home_container {
+  display: flex;
+  justify-content: space-between; /* separa esquerda e direita */
+  align-items: stretch;           /* ambas colunas ocupam a altura */
+  width: 100%;
+  min-height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_home {
+  flex: 1;                        /* ocupa metade da largura */
+  display: flex;
+  flex-direction: column;         /* itens em coluna */
+  justify-content: center;        /* centraliza verticalmente */
+  align-items: flex-start;        /* alinha à esquerda */
+  gap: 20px;                      /* espaço entre itens */
+  padding: 20px;
+}
+
+.dir_column_home {
+  flex: 1;                        /* ocupa metade da largura */
+  display: flex;
+  justify-content: center;        /* centraliza animação */
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}

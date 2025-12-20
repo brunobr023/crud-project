@@ -1,0 +1,8 @@
+.animationsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;          /* espaço entre animações */
+  flex-wrap: wrap;    /* quebra linha se não couber */
+  padding: 40px;
+}

@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "sistema-gestao-pessoas-br",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.1_alpha",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.12.2",
+    "lottie-react": "^2.4.1",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

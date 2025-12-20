@@ -1,44 +1,45 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Create from './pages/Create';
-import Cadastro from "./pages/Cadastro.tsx";
+import Cadastro from "./pages/Cadastro";
+import LandingPage from "./pages/LandingPage"; 
 import ProtectedRoute from './routes/ProtectedRoutes';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* Rota inicial leva para login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+    <Routes>
+      {/* Rota inicial leva para LandingPage */}
+      <Route path="/" element={<LandingPage />} />
 
-        {/* Login público */}
-        <Route path="/login" element={<Login />} />
+      {/* Login público */}
+      <Route path="/login" element={<Login />} />
 
-        {/* Cadastro Público */}
-        <Route path="/cadastro" element={<Cadastro />} />
+      {/* Cadastro Público */}
+      <Route path="/cadastro" element={<Cadastro />} />
 
-        {/* Home protegida */}
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
+      {/* Home protegida */}
+      <Route
+        path="/home"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
 
-        {/* Criação de usuário protegida */}
-        <Route
-          path="/create"
-          element={
-            <ProtectedRoute>
-              <Create />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Router>
+      {/* Criação de usuário protegida */}
+      <Route
+        path="/create"
+        element={
+          <ProtectedRoute>
+            <Create />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
+  </Router>
   );
 }
 
