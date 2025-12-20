@@ -1,5 +1,6 @@
 import Aurora from '../components/Background';
 import MenuBlock from '../components/MenuBlock';
+import { useNavigate } from 'react-router-dom';
 import './css/Home.css';
 
 // Lista de itens do menu com roles associadas
@@ -22,8 +23,16 @@ const VerificationRole = async (roles: string[]) => {
 const filteredMenu = menuItems.filter(item => VerificationRole(item.role));
 
 
-
 function Home() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove a flag de login
+    localStorage.removeItem("auth");
+    // Redireciona para login
+    navigate("/login");
+  };
+
   return (
     <div className='background'>
       {/* Componente de fundo animado Aurora */}
@@ -43,7 +52,7 @@ function Home() {
           ))}
         </div>
         <div className='login-footer'>
-          <button>teste</button>
+          <button onClick={handleLogout}>Teste (Logout)</button>
         </div>
       </div> 
     </div>
