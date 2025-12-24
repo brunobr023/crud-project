@@ -32,9 +32,7 @@ O objetivo é fornecer uma base sólida para aplicações modernas, escaláveis 
 
 ## 📂 Estrutura do Projeto - Base
 ├── frontend/        # Aplicação React + TS + Vite
-|    └──
 ├── backend/         # API em Spring Boot
-|    └──
 ├── node_modules/    # Dependências do frontend
 ├── target/          # Build do backend
 ├── .gitignore
@@ -83,5 +81,5 @@ Exemplo de chamada:
     axios.get("http://localhost:8080/api/exemplo")
     .then(res => console.log(res.data))
     .catch(err => console.error(err));
-``
+```
 Consulte o arquivo `SECURITY.md` para detalhes sobre práticas de segurança e reporte de vulnerabilidades.
