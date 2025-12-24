@@ -24,32 +24,111 @@ function LandingPage (){
             <div className="navbarLanding">
                 <img src={Logotipo} alt="Logotipo"/>
                 <div className="menubar">
-                    <a href="">Home</a>
-                    <a href="">Quem Somos</a>
-                    <a href="">Suporte</a>
-                    <a href="">Documentação</a>
+                    <a href="#home">Home</a>
+                    <a href="#quem-somos">Quem Somos</a>
+                    <a href="#suporte">Suporte</a>
+                    <a href="#documentacao">Documentação</a>
                 </div>
                 <div className="authbar">
-                    <a href="">Login</a>
-                    <a href="">Cadastro</a>
+                    <a href="/Login">Login</a>
+                    <a href="/Cadastro">Cadastro</a>
                 </div>
             </div>
 
             <div className='base-principal'>
-                <div className="home_container">
+                {/* Separador visual */}
+                <hr className="section-divider" id="home" />
+                {/* Seção Home */}
+                <div className="home_container" >
                     <div className="esq_column_home">
                         <h1>Bem vindo ao SGP!</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
-                        suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
-                        similique sunt nisi ex asperiores?</p>
+                            suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
+                            similique sunt nisi ex asperiores?</p>
                     </div>
                     <div className="dir_column_home">
                         {/*Renderizando a animação no lado direito */}
-                         <Animations animations={animationsList} />
+                        <Animations animations={animationsList} />
                     </div>
                 </div>
 
+                {/* Separador visual */}
+                <hr className="section-divider background-somos" id="quem-somos" />
+
+                {/* Seção Quem Somos */}
+                <div className="somos_container" >
+                    <div className="esq_column_somos">
+                        {/*Renderizando a animação no lado esquerdo */}
+                        <Animations animations={animationsList} />
+                    </div>
+                    <div className="dir_column_somos">
+                        {/*Renderizando a animação no lado direito */}
+                        <h1>Quem Somos?</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
+                            suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
+                            similique sunt nisi ex asperiores?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Magnam delectus ipsa ex quas? Nisi, accusamus recusandae porro
+                            hic molestias unde, ipsum deleniti rerum ab quo sed laboriosam
+                            adipisci impedit beatae.</p>
+                    </div>
+                </div>
+
+                {/* Separador visual */}
+                <hr className="section-divider" id="suporte" />
+
+                {/* Seção Suporte */}
+                <div className="suporte_container" >
+                    <div className="esq_column_suporte">
+                        <h1>Suporte com a Aplicação</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
+                            suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
+                            similique sunt nisi ex asperiores?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Magnam delectus ipsa ex quas? Nisi, accusamus recusandae porro
+                            hic molestias unde, ipsum deleniti rerum ab quo sed laboriosam
+                            adipisci impedit beatae.</p>
+                    </div>
+                    <div className="dir_column_suporte">
+                        {/*Renderizando a animação no lado direito */}
+                        <Animations animations={animationsList} />
+                    </div>
+                </div>
+
+                {/* Separador visual */}
+                <hr className="section-divider" id="documentacao" />
+
+                {/* Seção Suporte */}
+                <div className="doc_container" >
+                    <div className="esq_column_doc">
+                    {/*Renderizando a animação no lado direito */}
+                        <Animations animations={animationsList} />
+                    </div>
+                    <div className="dir_column_doc">
+                        <h1>Documentação e Desenvolvedor</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
+                            suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
+                            similique sunt nisi ex asperiores?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Magnam delectus ipsa ex quas? Nisi, accusamus recusandae porro
+                            hic molestias unde, ipsum deleniti rerum ab quo sed laboriosam
+                            adipisci impedit beatae.</p>
+                    </div>
+                </div>
+
+                {/* Separador visual */}
+                <hr className="section-divider" />
+                {/* Separador visual */}
+                <hr className="section-divider" />
             </div>
+            <footer>
+                <p>© 2025 Minha Empresa. Todos os direitos reservados.</p>
+                    <nav>
+                        <a href="#quem-somos">Quem Somos</a>
+                        <a href="#suporte">Suporte</a>
+                        <a href="#contato">Contato</a>
+                    </nav>
+            </footer>
         </div>
     );
 }

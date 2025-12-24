@@ -1,57 +1,62 @@
-/* Reset global de propriedades básicas */
+/* ============================
+   RESET GLOBAL
+   ============================ */
 :root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Configurações base para body e html */
-/* Previne scrollbars indesejadas e garante altura total */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
-  overflow: auto;
+  min-height: 100vh;          /* garante altura mínima da viewport */
+  overflow-x: hidden;         /* evita scroll horizontal indesejado */
+  scroll-behavior: smooth;    /* rolagem suave para anchors */
+  font-family: 'Segoe UI', sans-serif;
   background-color: #F2E3D5;
-  scroll-behavior: smooth;
 }
 
-/* Container principal que envolve todo o conteúdo */
-/* Posicionamento absoluto para cobrir toda a viewport */
+/* ============================
+   BACKGROUND PRINCIPAL
+   ============================ */
 .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: relative;         /* não absoluto, permite crescer com conteúdo */
+  display: flex;
+  flex-direction: column;     /* organiza conteúdo em coluna */
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
 }
 
-/* Configuração do container do efeito Aurora */
-/* Fixado na viewport para garantir cobertura total durante scroll */
+/* Aurora animado fixo no fundo */
 .aurora-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;  /* Mantém o aurora abaixo do conteúdo */
+  width: 100%;
+  height: 100%;
+  z-index: 0;                 /* fica atrás do conteúdo */
 }
+
+/* ============================
+   NAVBAR FIXA
+   ============================ */
 .navbarLanding {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;              /* garante que não ultrapasse a tela */
+  width: 100%;                /* ocupa toda a largura */
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;           /* diminui o espaçamento lateral */
+  padding: 0 20px;
   background: linear-gradient(to right, #e6f7ff, #ffffff);
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 9999;
-  box-sizing: border-box;    /* inclui padding na largura total */
+  z-index: 9999;              /* acima do aurora */
+  box-sizing: border-box;
 }
 
 .navbarLanding img {
@@ -73,10 +78,37 @@ body, html {
 .menubar a:hover, .authbar a:hover {
   color: #007bff;
 }
+
+/* ============================
+   CONTEÚDO PRINCIPAL
+   ============================ */
+.base-principal {
+  flex: 1;                    /* ocupa espaço disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;           /* scroll só quando necessário */
+  padding-top: 80px;          /* espaço para não ficar atrás da navbar */
+}
+
+.section-divider {
+  margin: 90px 0;
+  border: none;
+  height: 4px;
+  background-color: #ccc;
+}
+
+.background-somos {
+  background-color: #007bff;  /* azul para separador específico */
+}
+
+/* ============================
+   SEÇÃO HOME
+   ============================ */
 .home_container {
   display: flex;
-  justify-content: space-between; /* separa esquerda e direita */
-  align-items: stretch;           /* ambas colunas ocupam a altura */
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
   min-height: 400px;
   padding: 20px;
@@ -84,20 +116,140 @@ body, html {
 }
 
 .esq_column_home {
-  flex: 1;                        /* ocupa metade da largura */
+  flex: 1;
   display: flex;
-  flex-direction: column;         /* itens em coluna */
-  justify-content: center;        /* centraliza verticalmente */
-  align-items: flex-start;        /* alinha à esquerda */
-  gap: 20px;                      /* espaço entre itens */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
   padding: 20px;
 }
 
 .dir_column_home {
-  flex: 1;                        /* ocupa metade da largura */
+  flex: 1;
   display: flex;
-  justify-content: center;        /* centraliza animação */
+  justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+/* ============================
+   SEÇÃO QUEM SOMOS
+   ============================ */
+.somos_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  min-height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_somos, .dir_column_somos {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_somos {
+  justify-content: center;
+  align-items: center;
+}
+
+.dir_column_somos {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ============================
+   SEÇÃO SUPORTE
+   ============================ */
+.suporte_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  min-height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_suporte, .dir_column_suporte {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_suporte {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dir_column_suporte {
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+   SEÇÃO DOCUMENTAÇÃO
+   ============================ */
+.doc_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  min-height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_doc, .dir_column_doc {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_doc {
+  justify-content: center;
+  align-items: center;
+}
+
+.dir_column_doc {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  width: 100%;
+  background-color: #007bff;
   color: #fff;
+  text-align: center;
+  padding: 5px;
+  position: relative;         /* faz parte do fluxo normal */
+  z-index: 10;
+}
+
+footer nav {
+  margin-top: 10px;
+}
+
+footer nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
 }

@@ -1,12 +1,22 @@
-/* Reset global de propriedades básicas */
+/* ============================
+   RESET GLOBAL
+   ============================ */
+/* Remove margens e paddings padrão do navegador
+   Define box-sizing para incluir bordas e paddings no cálculo da largura/altura */
 :root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Configurações base para body e html */
-/* Previne scrollbars indesejadas e garante altura total */
+/* ============================
+   BODY E HTML
+   ============================ */
+/* Configurações base para ocupar toda a viewport
+   - Remove margens/paddings
+   - Define largura e altura total
+   - Permite rolagem vertical
+   - Define cor de fundo padrão */
 body, html {
   margin: 0;
   padding: 0;
@@ -16,74 +26,123 @@ body, html {
   background-color: #F2E3D5;
 }
 
-/* Container principal que envolve todo o conteúdo */
-/* Posicionamento absoluto para cobrir toda a viewport */
+/* ============================
+   BACKGROUND PRINCIPAL
+   ============================ */
+/* Container que cobre toda a viewport
+   - Posicionado absoluto para ocupar tela inteira
+   - Usado como camada de fundo */
 .background {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw;   /* largura da viewport */
+  height: 100vh;  /* altura da viewport */
   overflow: hidden;
 }
 
-/* Configuração do container do efeito Aurora */
-/* Fixado na viewport para garantir cobertura total durante scroll */
+/* ============================
+   AURORA ANIMADO
+   ============================ */
+/* Container do efeito Aurora
+   - Fixado na viewport para acompanhar scroll
+   - Mantido abaixo do conteúdo com z-index */
 .aurora-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;  /* Mantém o aurora abaixo do conteúdo */
+  z-index: 0;  /* fica atrás dos elementos principais */
 }
 
-/* Container principal do conteúdo */
-/* Centraliza todos os elementos filhos */
+/* ============================
+   CONTEÚDO PRINCIPAL
+   ============================ */
+/* Container central do conteúdo
+   - Flexbox em coluna
+   - Centraliza elementos filhos
+   - Ocupa toda a viewport
+   - Fica acima do aurora */
 .base-principal {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;   /* centraliza verticalmente */
+  align-items: center;       /* centraliza horizontalmente */
   width: 100vw;
   height: 100vh;
-  z-index: 1;  /* Posiciona acima do aurora */
+  z-index: 1;
 }
 
-/* Wrapper dos blocos de menu */
-/* Organiza os itens do menu em linha horizontal */
+/* ============================
+   MENU WRAPPER
+   ============================ */
+/* Container dos itens de menu
+   - Flexbox em linha
+   - Espaçamento entre itens com gap
+   - Previne quebra de linha
+   - Mantido acima do conteúdo com z-index */
 .menu-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;  /* Espaçamento entre os itens do menu */
-  z-index: 2;  /* Garante que o menu fique acima de todos os elementos */
+  gap: 2rem;         /* espaçamento entre links */
+  z-index: 2;
   flex-direction: row;
-  flex-wrap: nowrap;  /* Previne quebra de linha dos itens */
+  flex-wrap: nowrap; /* impede quebra de linha */
 }
-.title{
+
+/* ============================
+   TÍTULO PRINCIPAL
+   ============================ */
+/* Texto de título
+   - Posicionado absoluto no topo da tela
+   - Fonte grande
+   - Cor preta
+   - Mantido acima do aurora */
+.title {
   position: absolute;
   top: 10%;
   font-size: 3rem;
   color: rgb(0, 0, 0);
   z-index: 2;
 }
-.menu{
+
+/* ============================
+   MENU INLINE
+   ============================ */
+/* Container inline para itens de menu
+   - Alinha verticalmente os elementos */
+.menu {
   display: inline-flex;
   align-items: center;
-
 }
-svg{
+
+/* ============================
+   ÍCONES SVG
+   ============================ */
+/* Ícones dentro do menu
+   - Espaçamento à direita
+   - Transição suave para transform e fill */
+svg {
   padding-right: 15px;
   transition: transform 0.3s ease, fill 0.3s ease;
-
 }
-svg:hover{
+
+/* Efeito hover nos ícones
+   - Aumenta levemente o tamanho */
+svg:hover {
   transform: scale(1.2);
-
 }
+
+/* ============================
+   LOGIN FOOTER
+   ============================ */
+/* Elemento de rodapé para login
+   - Exibido como bloco
+   - Espaço acima para separar dos botões */
 .login-footer {
   display: block;
-  margin-top: 20px; /* Espaço entre os botões acima e este */
+  margin-top: 20px;
 }

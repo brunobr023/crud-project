@@ -1,10 +1,24 @@
-/* Reset global */
+/* ============================
+   RESET GLOBAL
+   ============================ */
+/* Remove margens e paddings padrão do navegador
+   Define box-sizing para incluir bordas e paddings no cálculo da largura/altura */
 :root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ============================
+   BODY E HTML
+   ============================ */
+/* Configurações base para ocupar toda a viewport
+   - Remove margens/paddings
+   - Define largura total
+   - Altura mínima da viewport
+   - Permite rolagem vertical
+   - Fonte padrão Segoe UI
+   - Cor de fundo clara */
 body, html {
   margin: 0;
   padding: 0;
@@ -15,7 +29,13 @@ body, html {
   background-color: #F2E3D5;
 }
 
-/* Aurora background fixo */
+/* ============================
+   FUNDO AURORA
+   ============================ */
+/* Aurora animado fixo no fundo
+   - Posicionado fixo para cobrir toda a tela
+   - Mantido atrás do conteúdo com z-index 0
+   - pointer-events: none → não interfere na interação do usuário */
 .aurora-container {
   position: fixed;
   top: 0;
@@ -26,20 +46,36 @@ body, html {
   pointer-events: none;
 }
 
+/* ============================
+   CONTAINER PRINCIPAL
+   ============================ */
+/* Container da página Create
+   - Flexbox para centralizar conteúdo
+   - Alinha itens no topo (flex-start)
+   - Ocupa toda a viewport
+   - Padding vertical para espaçamento
+   - overflow-y: auto → scroll só quando necessário */
 .base-Create {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  height: 100vh; /* usar height em vez de min-height */
+  height: 100vh; /* altura fixa da viewport */
   padding: 60px 0;
   box-sizing: border-box;
   z-index: 2;
-  overflow-y: auto; /* auto é melhor que scroll */
+  overflow-y: auto;
 }
 
-/* Título da página */
+/* ============================
+   TÍTULO DA PÁGINA
+   ============================ */
+/* Estilo do título principal
+   - Fonte grande
+   - Cor escura para contraste
+   - Centralizado
+   - Espaço inferior para separar do formulário */
 .Create_Title {
   font-size: 2.5rem;
   color: #333;
@@ -48,7 +84,16 @@ body, html {
   z-index: 2;
 }
 
-/* Container do formulário */
+/* ============================
+   FORMULÁRIO
+   ============================ */
+/* Container do formulário
+   - Largura controlada (mínimo 700px, máximo 1300px)
+   - Fundo semi-transparente cinza
+   - Sombra para destacar
+   - Bordas arredondadas
+   - Flexbox em coluna
+   - Espaçamento interno e entre elementos */
 .form {
   width: 100%;
   min-width: 700px;
@@ -66,7 +111,12 @@ body, html {
   z-index: 2;
 }
 
-/* Grupo de campos */
+/* ============================
+   GRUPO DE CAMPOS
+   ============================ */
+/* Cada grupo de campo (label + input)
+   - Organizado em coluna
+   - Alinhado à esquerda */
 .form-group {
   width: 100%;
   margin-bottom: 1rem;
@@ -75,7 +125,13 @@ body, html {
   align-items: flex-start;
 }
 
-/* Rótulos */
+/* ============================
+   RÓTULOS
+   ============================ */
+/* Labels dos campos
+   - Espaço inferior
+   - Fonte escura e levemente maior
+   - Negrito para destaque */
 label {
   display: block;
   margin-bottom: 0.5rem;
@@ -84,7 +140,15 @@ label {
   font-weight: 500;
 }
 
-/* Campos de entrada */
+/* ============================
+   CAMPOS DE ENTRADA
+   ============================ */
+/* Inputs do formulário
+   - Largura total
+   - Padding interno
+   - Bordas arredondadas
+   - Fundo branco
+   - Transição suave em foco */
 input {
   width: 100%;
   padding: 0.8rem 1rem;
@@ -97,13 +161,25 @@ input {
   box-sizing: border-box;
 }
 
+/* Estado de foco dos inputs
+   - Remove outline padrão
+   - Muda cor da borda para azul
+   - Adiciona sombra leve */
 input:focus {
   outline: none;
   border-color: #3A29FF;
   box-shadow: 0 0 0 3px rgba(58, 41, 255, 0.1);
 }
 
-/* Botão de envio */
+/* ============================
+   BOTÃO DE ENVIO
+   ============================ */
+/* Botão principal
+   - Largura total
+   - Fundo azul
+   - Texto branco em negrito
+   - Bordas arredondadas
+   - Transição suave em hover */
 button {
   width: 100%;
   padding: 1rem;
@@ -118,6 +194,10 @@ button {
   transition: all 0.3s ease;
 }
 
+/* Hover do botão
+   - Escurece o azul
+   - Move levemente para cima
+   - Adiciona sombra */
 button:hover {
   background: #2816ff;
   transform: translateY(-2px);

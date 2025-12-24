@@ -1,25 +1,52 @@
+/* ============================
+   BLOCO DE MENU
+   ============================ */
+/* Estilo base de cada bloco de menu
+   - Usa flexbox para centralizar conteúdo
+   - Remove sublinhado de links (text-decoration: none)
+   - Fundo azul escuro (#170c9a)
+   - Texto branco
+   - Padding interno para espaçamento
+   - Bordas arredondadas
+   - Fonte maior (1.2rem)
+   - Transição suave para efeitos de hover
+   - Altura e largura fixas para consistência visual */
 .menu-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  background-color: #170c9a;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  height: 100px;
-  width: 150px;
+  display: flex;                 /* ativa flexbox */
+  justify-content: center;       /* centraliza horizontalmente */
+  align-items: center;           /* centraliza verticalmente */
+  text-decoration: none;         /* remove sublinhado de links */
+  background-color: #170c9a;     /* fundo azul escuro */
+  color: white;                  /* texto branco */
+  padding: 1rem 2rem;            /* espaçamento interno */
+  border-radius: 8px;            /* bordas arredondadas */
+  font-size: 1.2rem;             /* tamanho da fonte */
+  transition: all 0.3s ease;     /* transição suave */
+  height: 100px;                 /* altura fixa */
+  width: 150px;                  /* largura fixa */
 }
 
+/* ============================
+   ESTADO HOVER
+   ============================ */
+/* Efeito ao passar o mouse
+   - Aumenta levemente o tamanho (scale)
+   - Muda fundo para branco
+   - Muda texto para preto
+   - Adiciona sombra azul para destaque */
 .menu-block:hover {
-  transform: scale(1.1);
-  background-color: #ffffff;
-  color: #000000;
-  box-shadow: 0 0 15px rgba(23, 12, 154, 0.5);
+  transform: scale(1.1);                         /* aumenta tamanho */
+  background-color: #ffffff;                     /* fundo branco */
+  color: #000000;                                /* texto preto */
+  box-shadow: 0 0 15px rgba(23, 12, 154, 0.5);   /* sombra azul */
 }
 
+/* ============================
+   TÍTULO DO BLOCO
+   ============================ */
+/* Estilo do título dentro do bloco
+   - Remove margens padrão
+   - Centraliza texto */
 .menu-block h2 {
   margin: 0;
   text-align: center;
