@@ -7,7 +7,7 @@ Este projeto é uma aplicação **full-stack** composta por:
 
 O objetivo é fornecer uma base sólida para aplicações modernas, escaláveis e seguras.
 
----
+--- Feito por Bruno
 
 ## 🛠️ Tecnologias Utilizadas
 
