@@ -1,17 +1,19 @@
-# Security Policy
+# Política de Segurança
 
-## Supported Versions
-We release patches for security vulnerabilities in the following versions:
+## Versões Suportadas
+Nós liberamos correções para vulnerabilidades de segurança nas seguintes versões:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x     | ✅                 |
-| 0.x     | ❌                 |
+| Versão | Suportada           |
+| ------ | ------------------- |
+| 1.x    | ✅                  |
+| 0.x    | ❌                  |
 
-## Reporting a Vulnerability
-If you discover a security vulnerability, please open an issue or contact us at [your-email@example.com].
-We will review and respond within 48 hours.
+## Reportando uma Vulnerabilidade
+Se você descobrir uma vulnerabilidade de segurança, por favor abra uma *issue* ou entre em contato pelo e-mail: [brunootavio326@gmail.com].
 
-## Guidelines
-- Do not publicly disclose the vulnerability before it is fixed.
-- Provide as much detail as possible (steps to reproduce, affected versions, etc.).
+Nós iremos revisar e responder dentro de **48 horas**.
+
+## Diretrizes
+- Não divulgue publicamente a vulnerabilidade antes que ela seja corrigida.  
+- Forneça o máximo de detalhes possível (passos para reproduzir, versões afetadas, etc.).  
+- Caso necessário, trabalharemos junto com você para validar e aplicar a correção.  
