@@ -31,6 +31,7 @@ function Cadastro() {
         <div className="auth-container">
             {/* Card de cadastro */}
             <div className="auth-card">
+              <a href="/">Voltar</a>
                 <img className="logotipo" src={Logo} alt="Logotipo"/>
                 <h1>Cadastro</h1>
                 <form onSubmit={handleRegister}>

@@ -1,7 +1,7 @@
 {
   "name": "sistema-gestao-pessoas-br",
   "private": true,
-  "version": "0.1.1_alpha",
+  "version": "0.2.0_alpha",
   "type": "module",
   "scripts": {
     "dev": "vite",

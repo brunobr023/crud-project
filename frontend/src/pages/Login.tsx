@@ -27,6 +27,7 @@ function Login() {
         <div className="auth-container">
             {/* Card de login */}
             <div className="auth-card">
+              <a href="/">Voltar</a>
                 <img className="logotipo" src={Logo} alt=""/>
                 <h1>Login</h1>
                 <form onSubmit={handleLogin}>
