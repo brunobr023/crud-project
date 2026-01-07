@@ -1,4 +1,5 @@
 import "./css/landingPage.css";
+import "./css/glass.css";
 import Aurora from "../components/Background";
 import Logotipo from "../assets/Logotipo01_a.svg";
 import Animations from "../components/animations"
@@ -8,7 +9,7 @@ function LandingPage (){
 
     //constante responsavel pela a escolha da animação
     const animationsList = [
-    { id: 1, data: animacaoBusiness, style: { width: 300, height: 300 }, loop: true }
+    { id: 1, data: animacaoBusiness, style: { width: 400, height: 400 }, loop: true }
   ];
 
     return(
@@ -36,10 +37,11 @@ function LandingPage (){
             </div>
 
             <div className='base-principal'>
-                {/* Separador visual */}
+
                 <hr className="section-divider" id="home" />
+
                 {/* Seção Home */}
-                <div className="home_container" >
+                <div className="home_container"  >
                     <div className="esq_column_home">
                         <h1>Bem vindo ao SGP!</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
@@ -52,17 +54,18 @@ function LandingPage (){
                     </div>
                 </div>
 
-                {/* Separador visual */}
-                <hr className="section-divider background-somos" id="quem-somos" />
+                
 
                 {/* Seção Quem Somos */}
-                <div className="somos_container" >
+                <div className="somos_container glass3d" >
+                    <hr id="quem-somos"  />
                     <div className="esq_column_somos">
                         {/*Renderizando a animação no lado esquerdo */}
                         <Animations animations={animationsList} />
                     </div>
                     <div className="dir_column_somos">
                         {/*Renderizando a animação no lado direito */}
+                        <p>//QUEM SOMOS NÓS?</p>
                         <h1>Quem Somos?</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
                             suscipit facilis porro voluptatem ex distinctio fugiat ipsum? Perferendis aspernatur consequuntus 
@@ -72,13 +75,13 @@ function LandingPage (){
                             hic molestias unde, ipsum deleniti rerum ab quo sed laboriosam
                             adipisci impedit beatae.</p>
                     </div>
+                    
                 </div>
 
-                {/* Separador visual */}
-                <hr className="section-divider" id="suporte" />
+
 
                 {/* Seção Suporte */}
-                <div className="suporte_container" >
+                <div className="suporte_container" id="suporte" >
                     <div className="esq_column_suporte">
                         <h1>Suporte com a Aplicação</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quidem, modi adipisci hic impedit
@@ -95,11 +98,10 @@ function LandingPage (){
                     </div>
                 </div>
 
-                {/* Separador visual */}
-                <hr className="section-divider" id="documentacao" />
+
 
                 {/* Seção Suporte */}
-                <div className="doc_container" >
+                <div className="doc_container glass3d" id="documentacao">
                     <div className="esq_column_doc">
                     {/*Renderizando a animação no lado direito */}
                         <Animations animations={animationsList} />
@@ -116,10 +118,7 @@ function LandingPage (){
                     </div>
                 </div>
 
-                {/* Separador visual */}
-                <hr className="section-divider" />
-                {/* Separador visual */}
-                <hr className="section-divider" />
+
             </div>
             <footer>
                 <p>© 2025 Minha Empresa. Todos os direitos reservados.</p>
