@@ -1,0 +1,17 @@
+/* ============================
+   CONTAINER DE ANIMAÇÕES
+   ============================ */
+/* Container que organiza múltiplas animações
+   - Usa flexbox para alinhar os elementos
+   - Centraliza horizontal e verticalmente
+   - Define espaçamento entre os itens
+   - Permite quebra de linha quando não couber na largura
+   - Adiciona padding interno para afastar do limite da tela */
+.animationsContainer {
+  display: flex;               /* ativa flexbox */
+  justify-content: center;     /* centraliza horizontalmente */
+  align-items: center;         /* centraliza verticalmente */
+  gap: 40px;                   /* espaço entre animações */
+  flex-wrap: wrap;             /* quebra linha se não couber */
+  padding: 40px;               /* espaçamento interno */
+}

@@ -1,3 +1,10 @@
+/* ============================
+   BACKGROUND PRINCIPAL
+   ============================ */
+/* Container que cobre toda a viewport
+   - Posicionado relativo para permitir elementos absolutos dentro
+   - Ocupa largura e altura total da tela
+   - Esconde qualquer conteúdo que ultrapasse os limites */
 .update-background {
   position: relative;
   width: 100vw;
@@ -5,6 +12,13 @@
   overflow: hidden;
 }
 
+/* ============================
+   FUNDO AURORA
+   ============================ */
+/* Efeito Aurora animado
+   - Posicionado absoluto para cobrir toda a tela
+   - Mantido atrás do conteúdo com z-index 0
+   - pointer-events: none → não interfere na interação do usuário */
 .aurora-container {
   position: absolute;
   top: 0;
@@ -15,38 +29,58 @@
   pointer-events: none;
 }
 
-/* Cabeçalho fixo no canto superior esquerdo */
+/* ============================
+   CABEÇALHO FIXO
+   ============================ */
+/* Cabeçalho posicionado no canto superior esquerdo
+   - Usa flexbox para alinhar ícone e título
+   - Gap define espaçamento entre elementos */
 .update-header {
   position: absolute;
   top: 40px;
   left: 40px;
-  z-index: 2;
+  z-index: 2;                  /* acima do aurora */
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
+/* Links dentro do cabeçalho
+   - Flexbox para alinhar ícone e texto */
 .read-header a {
   display: flex;
   align-items: center;
 }
 
+/* Ícones SVG do cabeçalho
+   - Tamanho fixo
+   - Vertical-align para alinhar corretamente com texto */
 .update-header svg {
   display: block;
   height: 64px;
   width: 64px;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
 }
 
+/* Título do cabeçalho
+   - Fonte grande
+   - Cor escura para contraste
+   - Remove margens/paddings extras
+   - line-height: 1 evita espaçamento vertical adicional */
 .update-header h1 {
   font-size: 36px;
   color: #333;
   margin: 0;
-  line-height: 1; /* evita espaçamento extra */
+  line-height: 1;
   padding: 0;
 }
 
-/* Tabela centralizada */
+/* ============================
+   CONTAINER DA TABELA
+   ============================ */
+/* Centraliza a tabela no meio da tela
+   - Usa flexbox para alinhar horizontal e verticalmente
+   - z-index 1 para ficar acima do aurora */
 .update-table-container {
   position: relative;
   z-index: 1;
@@ -56,6 +90,13 @@
   align-items: center;
 }
 
+/* ============================
+   TABELA DE UPDATES
+   ============================ */
+/* Estilo da tabela
+   - Largura total até limite de 800px
+   - border-collapse remove espaçamento entre células
+   - Fundo branco com sombra para destacar */
 .update-table {
   width: 100%;
   max-width: 800px;
@@ -64,6 +105,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Células da tabela (th e td)
+   - Borda cinza clara
+   - Padding interno para espaçamento
+   - Texto alinhado à esquerda */
 .update-table th,
 .update-table td {
   border: 1px solid #ccc;
@@ -71,6 +116,9 @@
   text-align: left;
 }
 
+/* Cabeçalho da tabela (th)
+   - Fundo azul (#3A29FF)
+   - Texto branco em negrito */
 .update-table th {
   background-color: #3A29FF;
   color: white;

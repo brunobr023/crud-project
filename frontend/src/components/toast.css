@@ -1,7 +1,17 @@
+/* ============================
+   TOAST BASE
+   ============================ */
+/* Estilo padrão de cada toast (notificação)
+   - Flexbox para alinhar ícone e texto
+   - Espaçamento interno (padding)
+   - Bordas arredondadas
+   - Margem externa entre toasts
+   - Texto branco em negrito médio
+   - Animação de entrada (fadeIn) */
 .toast {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px;                     /* espaço entre ícone e texto */
   padding: 12px 16px;
   border-radius: 6px;
   margin: 8px;
@@ -10,17 +20,31 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+/* ============================
+   VARIANTES DE TOAST
+   ============================ */
+/* Toast de sucesso → verde */
 .toast-success {
   background-color: #4caf50;
 }
 
+/* Toast de erro → vermelho */
 .toast-error {
   background-color: #f44336;
 }
 
+/* Toast informativo → azul */
 .toast-info {
   background-color: #2196f3;
 }
+
+/* ============================
+   CONTAINER DE TOASTS
+   ============================ */
+/* Container fixo no canto superior direito
+   - Flexbox em coluna para empilhar toasts
+   - Alinhados à direita
+   - z-index alto para aparecer acima de tudo */
 .toast-container {
   position: fixed;
   top: 16px;
@@ -31,10 +55,22 @@
   z-index: 9999;
 }
 
+/* ============================
+   ANIMAÇÃO DE SAÍDA
+   ============================ */
+/* Classe aplicada para esconder o toast
+   - Usa animação fadeOut com forwards
+     (mantém estado final após animação) */
 .toast-hide {
   animation: fadeOut 0.3s ease-in-out forwards;
 }
 
+/* ============================
+   KEYFRAMES DE ANIMAÇÃO
+   ============================ */
+/* Animação de entrada (fadeIn)
+   - Começa transparente e deslocado para baixo
+   - Termina visível e na posição original */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -46,7 +82,12 @@
   }
 }
 
-/* Quando a tela for pequena (ex: até 600px), reposiciona para o centro inferior */
+/* ============================
+   RESPONSIVIDADE
+   ============================ */
+/* Em telas pequenas (até 600px)
+   - Reposiciona container para centro inferior
+   - Alinha toasts centralizados */
 @media screen and (max-width: 600px) {
   .toast-container {
     top: auto;

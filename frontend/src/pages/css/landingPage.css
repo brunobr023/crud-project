@@ -1,0 +1,256 @@
+/* ============================
+   RESET GLOBAL
+   ============================ */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;          /* garante altura mínima da viewport */
+  overflow-x: hidden;         /* evita scroll horizontal indesejado */
+  scroll-behavior: smooth;    /* rolagem suave para anchors */
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #F2E3D5;
+}
+
+/* ============================
+   BACKGROUND PRINCIPAL
+   ============================ */
+.background {
+  position: relative;         /* não absoluto, permite crescer com conteúdo */
+  display: flex;
+  flex-direction: column;     /* organiza conteúdo em coluna */
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Aurora animado fixo no fundo */
+.aurora-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;                 /* fica atrás do conteúdo */
+}
+
+/* ============================
+   NAVBAR FIXA
+   ============================ */
+.navbarLanding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;                /* ocupa toda a largura */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(to right, #e6f7ff, #ffffff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 9999;              /* acima do aurora */
+  box-sizing: border-box;
+}
+
+.navbarLanding img {
+  height: 50px;
+}
+
+.menubar, .authbar {
+  display: flex;
+  gap: 20px;
+}
+
+.menubar a, .authbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menubar a:hover, .authbar a:hover {
+  color: #007bff;
+}
+
+/* ============================
+   CONTEÚDO PRINCIPAL
+   ============================ */
+.base-principal {
+  flex: 1;                    /* ocupa espaço disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;           /* scroll só quando necessário */
+  padding-top: 80px;          /* espaço para não ficar atrás da navbar */
+  scroll-behavior: smooth;    /* rolagem suave para anchors */
+}
+
+.section-divider {
+  border: none;
+  height: 4px;
+  background-color: #ccc;
+}
+
+/* ============================
+   SEÇÃO HOME
+   ============================ */
+.home_container {
+  margin-top: 120px;
+  display: flex;
+  min-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 200px;
+}
+
+.esq_column_home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.dir_column_home {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ============================
+   SEÇÃO QUEM SOMOS
+   ============================ */
+.somos_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  min-height: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_somos, .dir_column_somos {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_somos {
+  justify-content: center;
+  align-items: center;
+}
+
+.dir_column_somos {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ============================
+   SEÇÃO SUPORTE
+   ============================ */
+.suporte_container {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 300px;
+}
+
+.esq_column_suporte, .dir_column_suporte {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_suporte {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dir_column_suporte {
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+   SEÇÃO DOCUMENTAÇÃO
+   ============================ */
+.doc_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.esq_column_doc, .dir_column_doc {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.esq_column_doc {
+  justify-content: center;
+  align-items: center;
+}
+
+.dir_column_doc {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  position: relative;         /* faz parte do fluxo normal */
+  z-index: 10;
+}
+
+footer nav {
+  margin-top: 10px;
+}
+
+footer nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
